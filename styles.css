@@ -1,0 +1,55 @@
+/* Style for the form container */
+form {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  .main
+  {
+      width:500px;
+      height:auto;
+      background-color: lightgrey;
+  }
+  header{
+      text-align: center;
+      font-size: 30px;
+      font-weight: bold;
+      color:blue;
+      padding:10px;
+  }
+  /* Style for form labels */
+  label {
+    display: inline-block;
+    width: 160px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    padding:10px;
+  }
+  
+  /* Style for form inputs */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea {
+    width: 300px;
+    padding: 5px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+  }
+  button
+  {
+      margin: 10px;
+      width: 100px;
+      height: 30px;
+      background-color: blue;
+      color: white;
+  }
+  
+  /* Style for error messages */
+  .error {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 5px; 
+  }
+  
+  

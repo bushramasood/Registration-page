@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration Page</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<script>
+  $(document).ready(function() 
+  {
+  $('form').submit(function(event) 
+  {
+  // Prevent the form from being submitted by default
+  event.preventDefault();
+  
+  // Get the values from the form fields
+  var firstName = $('#first-name').val();
+  var email = $('#email').val();
+  var mobileNumber = $('#mobile-number').val();
+  var lastName = $('#last-name').val();
+  var address = $('#address').val();
+  
+  // Regular expressions for validation
+  var namevalidate = /^[A-Za-z]{6,}$/;
+  var emailvalidate = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+  var mobilevalidate = /^\d{10}$/;
+  
+  // Flag to check if all fields are valid
+  var isValid = true;
+  
+  // Validate First Name
+  if (!namevalidate.test(firstName)) {
+    $('#first-name-error').text('First name should contain alphabets only and be at least 6 characters long.');
+    isValid = false;
+  } else {
+    $('#first-name-error').text('');
+  }
+  
+  // Validate Email
+  if (!emailvalidate.test(email)) {
+    $('#email-error').text('Invalid email address.');
+    isValid = false;
+  } else {
+    $('#email-error').text('');
+  }
+  
+  // Validate Mobile Number
+  if (!mobilevalidate.test(mobileNumber)) {
+    $('#mobile-number-error').text('Mobile number should contain 10 digits only.');
+    isValid = false;
+  } else {
+    $('#mobile-number-error').text('');
+  }
+  
+  // Validate Last Name
+  if (lastName.trim() === '') {
+    $('#last-name-error').text('Last name cannot be empty.');
+    isValid = false;
+  } else {
+    $('#last-name-error').text('');
+  }
+  
+  // Validate Address
+  if (address.trim() === '') {
+    $('#address-error').text('Address cannot be empty.');
+    isValid = false;
+  } else {
+    $('#address-error').text('');
+  }
+  
+  // If all fields are valid, submit the form
+  if (isValid) {
+    $('form').unbind('submit').submit();
+  }
+});
+});
+</script>
+</head>
+
+<body>
+<div class="main">
+<header>Registration Page</header>
+<form id="registration-form">
+  <div>
+    <label for="first-name">First Name:</label>
+    <input type="text" id="first-name" name="first-name" required><br>
+    <span id="first-name-error" class="error"></span>
+  </div>
+  <div>
+      <label for="last-name">Last Name:</label>
+      <input type="text" id="last-name" name="last-name" required><br>
+      <span id="last-name-error" class="error"></span>
+    </div>
+  <div>
+    <label for="email">E-mail:</label>
+    <input type="email" id="email" name="email" required><br>
+    <span id="email-error" class="error"></span>
+  </div>
+  <div>
+    <label for="mobile-number">Mobile Number:</label>
+    <input type="tel" id="mobile-number" name="mobile-number" required><br>
+    <span id="mobile-number-error" class="error"></span>
+  </div>
+  <div>
+    <label for="address">Address:</label>
+    <textarea id="address" name="address" required></textarea><br>
+    <span id="address-error" class="error"></span>
+  </div>
+  <div>
+    <button type="submit">Submit</button>
+  </div>
+</form>
+</div>
+</body>
+</html>
+
